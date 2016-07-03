@@ -8,8 +8,6 @@ A toy project to demonstrate how things develop over time. It's hacky, but fun.
 
 ``` sh
 pip install -r requirements.txt
-npm install -g serve
-
 bash run.sh       # creates the screenshots
 bash make_gif.sh  # creates the gif
 ```

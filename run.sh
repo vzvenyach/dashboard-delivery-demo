@@ -1,5 +1,7 @@
 #!/bin/bash
 
+MY_DIR=$PWD
+
 # Open the dashboard repo
 cd ../fedramp-dashboard
 git checkout gh-pages
@@ -11,9 +13,9 @@ for i in {0..19}
     COMMIT=$(git rev-list --before=$LAST_DATE "gh-pages" | head -n 1)
     git checkout -q $COMMIT
 
-    serve -p 8000 &
+    python -m http.server 8000 &
     SERVERPID=$!
-    python ~/Coding/dashboard-delivery-demo/takeshot.py $LAST_DATE
+    python $MY_DIR/takeshot.py $LAST_DATE
 
     kill -s 9 $SERVERPID
     sleep 2
